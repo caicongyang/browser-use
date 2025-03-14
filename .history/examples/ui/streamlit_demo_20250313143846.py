@@ -45,13 +45,11 @@ def get_llm(provider: str):
     elif provider == 'deepseek':
         from langchain_openai import ChatOpenAI
         api_key = os.getenv("DEEPSEEK_API_KEY")
-        base_url = os.getenv("DEEPSEEK_BASE_URL")
-        base_model = os.getenv("DEEPSEEK_MODEL")
         if not api_key:
             st.error("Error: DEEPSEEK_API_KEY is not set. Please provide a valid API key.")
             st.stop()
         
-        return ChatOpenAI(model=base_model, temperature=0.0,base_url=base_url)
+        return ChatOpenAI(model='deepseek-chat', temperature=0.0,base_url='https://api.deepseek.com/v1')
         
     else:
         st.error(f'Unsupported provider: {provider}')
@@ -76,7 +74,7 @@ def initialize_agent(query: str, provider: str):
 st.title("Automated Browser Agent with LLMs 🤖")
 
 query = st.text_input("Enter your query:", "go to reddit and search for posts about browser-use")
-provider = st.radio("Select LLM Provider:", ["openai", "anthropic", "deepseek"], index=0)
+provider = st.radio("Select LLM Provider:", ["openai", "anthropic"], index=0)
 
 if st.button("Run Agent"):
     st.write("Initializing agent...")

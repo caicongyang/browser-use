@@ -5,7 +5,7 @@ Example 1: Using OpenAI (default), with default task: 'go to reddit and search f
 python command_line.py
 
 Example 2: Using OpenAI with a Custom Query
-python command_line.py --query "go to www.baidu.com and search for browser-use"
+python command_line.py --query "go to google and search for browser-use"
 
 Example 3: Using Anthropic's Claude Model with a Custom Query
 python command_line.py --query "find latest Python tutorials on Medium" --provider anthropic
