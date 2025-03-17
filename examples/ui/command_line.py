@@ -51,7 +51,7 @@ def get_llm(provider: str):
 		if not api_key:
 			raise ValueError("Error: DEEPSEEK_API_KEY is not set. Please provide a valid API key.")
         
-		return ChatOpenAI(model='deepseek-chat', temperature=0.0,base_url='https://api.deepseek.com/v1')
+		return ChatOpenAI(model='deepseek-chat', temperature=1,base_url='https://api.deepseek.com/v1')
 
 	else:
 		raise ValueError(f'Unsupported provider: {provider}')
